@@ -17,14 +17,16 @@
                     <th scope="col">Full Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Created At</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
-            {%for user in users%}
+            {% for user in users %}
             <tr>
                 <td>{{user.id}}</td>
                 <td>{{user.first_name}} {{user.last_name}}</td>
                 <td>{{user.email}}</td>
-                <td>{{user.created_at}}</td>
+                <td>{{user.created_at.strftime("%B %d, %Y")}}</td>
+                <td><a href="/users/{{user.id}}">show</a> | <a href="/users/{{user.id}}/edit">edit</a> | <a href="/users/{{user.id}}/delete">delete</a></td>
             </tr>
             {% endfor %}
         </table>
